@@ -110,8 +110,8 @@ spec:
         volumeMounts:                         #<-- Add this and following two lines
         - mountPath: /etc/cars
           name: car-vol
-#        - name: nfs-vol
-#          mountPath: /opt
+        - name: nfs-vol
+          mountPath: /opt
         env:                                  #<-- Add from here
         - name: ilike                         # env var reading from a file (favorite)
           valueFrom:
@@ -156,7 +156,7 @@ spec:
         configMap:
           defaultMode: 420
           name: fast-car              # this configmap was created before hand from a yaml file
-#      - name: nfs-vol
-#        persistentVolumeClaim:
-#          claimName: pvc-one
+      - name: nfs-vol
+        persistentVolumeClaim:
+          claimName: pvc-one
 status:
