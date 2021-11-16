@@ -3,6 +3,7 @@ kind: Pod
 metadata:
   name: secondapp
 spec:
+  serviceAccountName: secret-access-sa
   securityContext:
     runAsUser: 1000
   containers:
@@ -14,12 +15,12 @@ spec:
     securityContext:
       runAsUser: 2000
       allowPrivilegeEscalation: false
-      capabilities:
-        add: ["NET_ADMIN", "SYS_TIME"]
-    volumeMounts:
-    - name: mysql
-      mountPath: /mysqlpassword
-  volumes:
-  - name: mysql
-    secret:
-      secretName: lfsecret
+#      capabilities:
+#        add: ["NET_ADMIN", "SYS_TIME"]
+#    volumeMounts:
+#    - name: mysql
+#      mountPath: /mysqlpassword
+#  volumes:
+#  - name: mysql
+#    secret:
+#      secretName: lfsecret
