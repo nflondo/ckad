@@ -6,5 +6,12 @@ spec:
   podSelector: {}
   policyTypes:
   - Ingress
-  - Egress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 192.168.0.0/16
+    ports:
+    - port: 80
+      protocol: TCP
+#  - Egress
 

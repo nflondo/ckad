@@ -1,0 +1,14 @@
+# A security context affects all containers in the pod
+apiVersion: v1
+kind: Pod
+metadata:
+  name: securityreview
+spec:
+  securityContext:
+    runAsUser: 101
+  containers:
+  - name:  webguy
+    image: nginx
+#    securityContext:
+#      runAsUser: 101
+#      allowPrivilegeEscalation: false

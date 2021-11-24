@@ -1,0 +1,36 @@
+# nmunoz@k8s-node1:~/practice/review6.6$ kubectl describe networkpolicy netblock
+# Name:         netblock
+# Namespace:    default
+# Created on:   2021-11-23 12:40:20 +0000 UTC
+# Labels:       <none>
+# Annotations:  <none>
+# Spec:
+#   PodSelector:     app=nginx
+#   Allowing ingress traffic:
+#     To Port: 80/TCP
+#     From: <any> (traffic not restricted by source)
+#   Allowing egress traffic:
+#     To Port: 80/TCP
+#     To: <any> (traffic not restricted by destination)
+#   Policy Types: Ingress, Egress
+
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: netblock
+  namespace: default
+spec:
+  podSelector:
+    matchLabels:
+      app: nginx
+  policyTypes:
+  - Ingress  
+  - Egress
+  ingress:
+  - ports:
+    - protocol: TCP
+      port: 80
+  egress:
+  - ports:
+    - protocol: TCP
+      port: 80
