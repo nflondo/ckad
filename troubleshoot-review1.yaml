@@ -9,7 +9,8 @@ metadata:
     run: igottrouble
   name: igottrouble
 spec:
-  replicas: 0
+  #replicas: 0  # when deployed there were no deployments under "READY" or "AVAILABLE"
+  replicas: 1
   selector:
     matchLabels:
       #run: ugottrouble
